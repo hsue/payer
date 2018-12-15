@@ -1,9 +1,9 @@
-package hsue;
+package entity;
 
 import javax.persistence.*;
 
 /**
- * Created by hsue on 12/14/18.
+ * Created by entity on 12/14/18.
  */
 @Entity
 public class Transaction {

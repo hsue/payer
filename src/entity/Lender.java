@@ -1,4 +1,4 @@
-package hsue;
+package entity;
 
 import com.sun.istack.internal.NotNull;
 
@@ -9,7 +9,7 @@ import javax.persistence.Id;
 import java.sql.Timestamp;
 
 /**
- * Created by hsue on 12/14/18.
+ * Created by entity on 12/14/18.
  */
 @Entity
 public class Lender {
