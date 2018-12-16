@@ -11,7 +11,7 @@ import javax.persistence.Query;
 
 
 public class Manager {
-  private static final String PERSISTENCE_UNIT_NAME = "payer";
+  private static final String PERSISTENCE_UNIT_NAME = "PayerUnit";
   private static EntityManagerFactory factory;
 
   public static void main(String[] args) {
@@ -28,6 +28,7 @@ public class Manager {
     // create new lender
     em.getTransaction().begin();
     Lender lender = new Lender();
+    lender.setId(2);
     lender.setCountryCode("US");
     lender.setWhereabouts("Fremont, CA");
     lender.setUid("12345");

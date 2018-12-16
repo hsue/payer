@@ -7,6 +7,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.sql.Timestamp;
+import java.util.Date;
 
 /**
  * Created by entity on 12/14/18.
@@ -17,7 +18,6 @@ public class Lender {
   private String whereabouts;
   private String countryCode;
   private String uid;
-  private Timestamp create;
 
   @Id
   @NotNull
@@ -60,16 +60,6 @@ public class Lender {
     this.uid = uid;
   }
 
-  @Basic
-  @Column(name = "create", nullable = false)
-  public Timestamp getCreate() {
-    return create;
-  }
-
-  public void setCreate(Timestamp create) {
-    this.create = create;
-  }
-
   @Override
   public boolean equals(Object o) {
     if (this == o) return true;
@@ -81,7 +71,6 @@ public class Lender {
     if (whereabouts != null ? !whereabouts.equals(lender.whereabouts) : lender.whereabouts != null) return false;
     if (countryCode != null ? !countryCode.equals(lender.countryCode) : lender.countryCode != null) return false;
     if (uid != null ? !uid.equals(lender.uid) : lender.uid != null) return false;
-    if (create != null ? !create.equals(lender.create) : lender.create != null) return false;
 
     return true;
   }
@@ -92,7 +81,6 @@ public class Lender {
     result = 31 * result + (whereabouts != null ? whereabouts.hashCode() : 0);
     result = 31 * result + (countryCode != null ? countryCode.hashCode() : 0);
     result = 31 * result + (uid != null ? uid.hashCode() : 0);
-    result = 31 * result + (create != null ? create.hashCode() : 0);
     return result;
   }
 }
