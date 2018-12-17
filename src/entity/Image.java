@@ -9,7 +9,7 @@ import java.util.List;
 @Entity
 public class Image {
   private Integer id;
-  private Integer templateId;
+  private Integer template_id;
   private List<Lender> lenders;
   private List<Loan> Loans;
 
@@ -45,12 +45,12 @@ public class Image {
 
   @Basic
   @Column(name = "template_id", nullable = true)
-  public Integer getTemplateId() {
-    return templateId;
+  public Integer getTemplate_id() {
+    return template_id;
   }
 
-  public void setTemplateId(Integer templateId) {
-    this.templateId = templateId;
+  public void setTemplate_id(Integer templateId) {
+    this.template_id = templateId;
   }
 
   @Override
@@ -61,7 +61,7 @@ public class Image {
     Image image = (Image) o;
 
     if (id != null ? !id.equals(image.id) : image.id != null) return false;
-    if (templateId != null ? !templateId.equals(image.templateId) : image.templateId != null) return false;
+    if (template_id != null ? !template_id.equals(image.template_id) : image.template_id != null) return false;
 
     return true;
   }
@@ -69,7 +69,7 @@ public class Image {
   @Override
   public int hashCode() {
     int result = id != null ? id.hashCode() : 0;
-    result = 31 * result + (templateId != null ? templateId.hashCode() : 0);
+    result = 31 * result + (template_id != null ? template_id.hashCode() : 0);
     return result;
   }
 }

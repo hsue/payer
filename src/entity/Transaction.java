@@ -1,6 +1,7 @@
 package entity;
 
 import javax.persistence.*;
+import javax.persistence.criteria.CriteriaBuilder;
 
 /**
  * Created by entity on 12/14/18.
@@ -10,9 +11,9 @@ public class Transaction {
   private Integer id;
   private String scheduled;
   private String sent;
-  private Lender lenderByLenderId;
-  private Loan loanByLoanId;
-  private Payment paymentByPaymentId;
+  private Lender lender;
+  private Loan loan;
+  private Integer payment;
 
   @Id
   @Column(name = "id", nullable = false)
@@ -68,31 +69,31 @@ public class Transaction {
 
   @ManyToOne
   @JoinColumn(name = "lender_id", referencedColumnName = "id", nullable = false)
-  public Lender getLenderByLenderId() {
-    return lenderByLenderId;
+  public Lender getLender() {
+    return lender;
   }
 
-  public void setLenderByLenderId(Lender lenderByLenderId) {
-    this.lenderByLenderId = lenderByLenderId;
+  public void setLender(Lender lenderByLenderId) {
+    this.lender = lenderByLenderId;
   }
 
   @ManyToOne
   @JoinColumn(name = "loan_id", referencedColumnName = "id", nullable = false)
-  public Loan getLoanByLoanId() {
-    return loanByLoanId;
+  public Loan getLoan() {
+    return loan;
   }
 
-  public void setLoanByLoanId(Loan loanByLoanId) {
-    this.loanByLoanId = loanByLoanId;
+  public void setLoan(Loan loanByLoanId) {
+    this.loan = loanByLoanId;
   }
 
-  @ManyToOne
-  @JoinColumn(name = "payment_id", referencedColumnName = "id", nullable = false)
-  public Payment getPaymentByPaymentId() {
-    return paymentByPaymentId;
+  @Basic
+  @Column(name = "payment", nullable = false, length = 45)
+  public Integer getPayment() {
+    return payment;
   }
 
-  public void setPaymentByPaymentId(Payment paymentByPaymentId) {
-    this.paymentByPaymentId = paymentByPaymentId;
+  public void setPayment(Integer paymentByPaymentId) {
+    this.payment = paymentByPaymentId;
   }
 }
