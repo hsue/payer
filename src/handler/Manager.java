@@ -36,5 +36,6 @@ public class Manager {
     em.getTransaction().commit();
 
     em.close();
+    System.exit(0);
   }
 }
