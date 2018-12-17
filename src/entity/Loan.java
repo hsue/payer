@@ -6,13 +6,11 @@ import javax.persistence.*;
  * Created by entity on 12/14/18.
  */
 @Entity
-public class Loan {
+public class Loan extends Participant{
   private Integer id;
-  private String name;
   private Integer descriptionId;
   private Integer foundedAmount;
   private String status;
-  private Integer imageId;
   private String activity;
   private String sector;
   private String use;
@@ -47,16 +45,6 @@ public class Loan {
   }
 
   @Basic
-  @Column(name = "name", nullable = true, length = 45)
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  @Basic
   @Column(name = "description_id", nullable = true)
   public Integer getDescriptionId() {
     return descriptionId;
@@ -84,16 +72,6 @@ public class Loan {
 
   public void setStatus(String status) {
     this.status = status;
-  }
-
-  @Basic
-  @Column(name = "image_id", nullable = true)
-  public Integer getImageId() {
-    return imageId;
-  }
-
-  public void setImageId(Integer imageId) {
-    this.imageId = imageId;
   }
 
   @Basic
@@ -204,11 +182,9 @@ public class Loan {
     Loan loan = (Loan) o;
 
     if (id != null ? !id.equals(loan.id) : loan.id != null) return false;
-    if (name != null ? !name.equals(loan.name) : loan.name != null) return false;
     if (descriptionId != null ? !descriptionId.equals(loan.descriptionId) : loan.descriptionId != null) return false;
     if (foundedAmount != null ? !foundedAmount.equals(loan.foundedAmount) : loan.foundedAmount != null) return false;
     if (status != null ? !status.equals(loan.status) : loan.status != null) return false;
-    if (imageId != null ? !imageId.equals(loan.imageId) : loan.imageId != null) return false;
     if (activity != null ? !activity.equals(loan.activity) : loan.activity != null) return false;
     if (sector != null ? !sector.equals(loan.sector) : loan.sector != null) return false;
     if (use != null ? !use.equals(loan.use) : loan.use != null) return false;
@@ -227,11 +203,9 @@ public class Loan {
   @Override
   public int hashCode() {
     int result = id != null ? id.hashCode() : 0;
-    result = 31 * result + (name != null ? name.hashCode() : 0);
     result = 31 * result + (descriptionId != null ? descriptionId.hashCode() : 0);
     result = 31 * result + (foundedAmount != null ? foundedAmount.hashCode() : 0);
     result = 31 * result + (status != null ? status.hashCode() : 0);
-    result = 31 * result + (imageId != null ? imageId.hashCode() : 0);
     result = 31 * result + (activity != null ? activity.hashCode() : 0);
     result = 31 * result + (sector != null ? sector.hashCode() : 0);
     result = 31 * result + (use != null ? use.hashCode() : 0);

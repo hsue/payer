@@ -10,7 +10,7 @@ import javax.persistence.Persistence;
 import javax.persistence.Query;
 
 
-public class Manager {
+public class PersistenceManager {
   private static final String PERSISTENCE_UNIT_NAME = "PayerUnit";
   private static EntityManagerFactory factory;
 
@@ -28,7 +28,7 @@ public class Manager {
     // create new lender
     em.getTransaction().begin();
     Lender lender = new Lender();
-    lender.setId(2);
+    //lender.setId(2);
     lender.setCountryCode("US");
     lender.setWhereabouts("Fremont, CA");
     lender.setUid("12345");
@@ -38,4 +38,32 @@ public class Manager {
     em.close();
     System.exit(0);
   }
+
+  public void setup() {
+    factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
+  }
+
+  public void createLenders(List<Lender> lenders) {
+    EntityManager em = factory.createEntityManager();
+
+    for(Lender lender: lenders) {
+      em.getTransaction().begin();
+      em.persist(lender);
+      em.getTransaction().commit();
+      em.clear();
+    }
+    em.close();
+  }
+
+  public void insertLender(Lender lender) {
+    EntityManager em = factory.createEntityManager();
+
+    // create new lender
+    em.getTransaction().begin();
+    em.persist(lender);
+    em.getTransaction().commit();
+
+    em.close();
+  }
+
 }

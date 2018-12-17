@@ -35,14 +35,10 @@ public class MainTester {
     APIResponse result = gson.fromJson(res, APIResponse.class);
     System.out.println("lenders = "+result.getLenders());
 
-  }
+    PersistenceManager manager = new PersistenceManager();
+    manager.setup();
+    manager.createLenders(result.getLenders());
 
-  public void getTestLender() throws IOException {
-    String res = getHTTPResponse("http://api.kivaws.org/v1/lenders/charmaine1388.json");
-    System.out.println(res);
-    Gson gson = new Gson();
-    APIResponse result = gson.fromJson(res, APIResponse.class);
-    System.out.println("lenders = "+result.getLenders());
   }
 
   public void getLoan() throws IOException {

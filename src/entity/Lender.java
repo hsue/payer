@@ -2,10 +2,7 @@ package entity;
 
 import com.sun.istack.internal.NotNull;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.sql.Timestamp;
 import java.util.Date;
 
@@ -13,14 +10,14 @@ import java.util.Date;
  * Created by entity on 12/14/18.
  */
 @Entity
-public class Lender {
+public class Lender extends Participant{
   private Integer id;
   private String whereabouts;
   private String countryCode;
   private String uid;
 
   @Id
-  @NotNull
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column(name = "id", nullable = false)
   public Integer getId() {
     return id;
