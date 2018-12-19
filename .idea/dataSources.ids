@@ -65,7 +65,7 @@
       <column id="20" parent="3" name="id">
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
-        <default-expression>&apos;0&apos;</default-expression>
+        <sequence-identity>1</sequence-identity>
       </column>
       <column id="21" parent="3" name="name">
         <data-type>varchar(45)</data-type>
@@ -89,7 +89,7 @@
         <data-type>varchar(45)</data-type>
       </column>
       <column id="28" parent="3" name="use">
-        <data-type>varchar(45)</data-type>
+        <data-type>varchar(255)</data-type>
       </column>
       <column id="29" parent="3" name="location_id">
         <data-type>int(11)</data-type>
@@ -213,6 +213,7 @@
       <column id="60" parent="6" name="id">
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
+        <sequence-identity>1</sequence-identity>
       </column>
       <column id="61" parent="6" name="loan_id">
         <mandatory>1</mandatory>
@@ -228,7 +229,7 @@
       </column>
       <column id="64" parent="6" name="scheduled">
         <mandatory>1</mandatory>
-        <data-type>varchar(45)</data-type>
+        <data-type>datetime</data-type>
       </column>
       <column id="65" parent="6" name="sent">
         <data-type>varchar(45)</data-type>

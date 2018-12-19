@@ -5,6 +5,7 @@ import entity.Lender;
 import entity.Loan;
 import entity.Transaction;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -134,6 +135,7 @@ public class PersistenceManager {
       transaction.setLender(lender);
       transaction.setLoan(loan);
       transaction.setPayment(payment);
+      transaction.setScheduled(new Date());
 
       em.getTransaction().begin();
       em.persist(transaction);

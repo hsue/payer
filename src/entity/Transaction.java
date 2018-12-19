@@ -1,7 +1,7 @@
 package entity;
 
 import javax.persistence.*;
-import javax.persistence.criteria.CriteriaBuilder;
+import java.util.Date;
 
 /**
  * Created by entity on 12/14/18.
@@ -9,13 +9,14 @@ import javax.persistence.criteria.CriteriaBuilder;
 @Entity
 public class Transaction {
   private Integer id;
-  private String scheduled;
+  private Date scheduled;
   private String sent;
   private Lender lender;
   private Loan loan;
   private Integer payment;
 
   @Id
+  @GeneratedValue
   @Column(name = "id", nullable = false)
   public Integer getId() {
     return id;
@@ -27,11 +28,11 @@ public class Transaction {
 
   @Basic
   @Column(name = "scheduled", nullable = false, length = 45)
-  public String getScheduled() {
+  public Date getScheduled() {
     return scheduled;
   }
 
-  public void setScheduled(String scheduled) {
+  public void setScheduled(Date scheduled) {
     this.scheduled = scheduled;
   }
 

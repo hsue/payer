@@ -1,7 +1,6 @@
 package entity;
 
 import javax.persistence.*;
-import java.util.Date;
 
 /**
  * Created by entity on 12/14/18.
@@ -13,7 +12,6 @@ public class Loan extends Participant{
   private String status;
   private String activity;
   private String sector;
-  private String use;
   private Integer partner_id;
   private String posted_date;
   private Integer loan_amount;
@@ -83,16 +81,6 @@ public class Loan extends Participant{
   }
 
   @Basic
-  @Column(name = "use", nullable = true, length = 45)
-  public String getUse() {
-    return use;
-  }
-
-  public void setUse(String use) {
-    this.use = use;
-  }
-
-  @Basic
   @Column(name = "partner_id", nullable = true)
   public Integer getPartner_id() {
     return partner_id;
@@ -154,7 +142,6 @@ public class Loan extends Participant{
     if (status != null ? !status.equals(loan.status) : loan.status != null) return false;
     if (activity != null ? !activity.equals(loan.activity) : loan.activity != null) return false;
     if (sector != null ? !sector.equals(loan.sector) : loan.sector != null) return false;
-    if (use != null ? !use.equals(loan.use) : loan.use != null) return false;
     if (partner_id != null ? !partner_id.equals(loan.partner_id) : loan.partner_id != null) return false;
     if (posted_date != null ? !posted_date.equals(loan.posted_date) : loan.posted_date != null) return false;
     if (loan_amount != null ? !loan_amount.equals(loan.loan_amount) : loan.loan_amount != null) return false;
@@ -172,7 +159,6 @@ public class Loan extends Participant{
     result = 31 * result + (status != null ? status.hashCode() : 0);
     result = 31 * result + (activity != null ? activity.hashCode() : 0);
     result = 31 * result + (sector != null ? sector.hashCode() : 0);
-    result = 31 * result + (use != null ? use.hashCode() : 0);
     result = 31 * result + (partner_id != null ? partner_id.hashCode() : 0);
     result = 31 * result + (posted_date != null ? posted_date.hashCode() : 0);
     result = 31 * result + (loan_amount != null ? loan_amount.hashCode() : 0);
